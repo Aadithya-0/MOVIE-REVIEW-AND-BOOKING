@@ -1,6 +1,8 @@
 import express from "express";
 import profilePage from "./routes/profilePage.js";
 import movieDetails from "./routes/movieRoute.js";
+import bookingsRouter from "./routes/bookings.js";
+
 import cors from "cors";
 
 const app = express();
@@ -22,6 +24,7 @@ app.get("/", (req, res) => {
 // Import and use your routes here
 app.use("/profile", profilePage);
 app.use("/movies", movieDetails);
+app.use("/", bookingsRouter);
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
