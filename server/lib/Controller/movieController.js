@@ -1,6 +1,6 @@
-const db = require('../db');
+import db from '../db.js';
 
-exports.getMovieById = async(req, res) => {
+const getMovieById = async(req, res) => {
     const  movieId = req.params.id;
     console.log(movieId);
     try{
@@ -16,4 +16,6 @@ exports.getMovieById = async(req, res) => {
         console.log(err);
     }
 }
+
+export default { getMovieById };
 

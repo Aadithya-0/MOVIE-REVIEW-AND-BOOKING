@@ -1,5 +1,6 @@
 // lib/db.js
-const { Pool } = require('pg');
+import pkg from 'pg';
+const { Pool } = pkg;
 
 // The pool will use the DATABASE_URL from the .env file automatically
 const pool = new Pool({
@@ -8,6 +9,7 @@ const pool = new Pool({
     rejectUnauthorized: false,
   },
 });
-module.exports = {
+
+export default {
   query: (text, params) => pool.query(text, params),
 };

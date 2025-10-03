@@ -2,10 +2,11 @@
   "name": "letterboxd-clone-server",
   "version": "1.0.0",
   "description": "Backend server for Letterboxd clone",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "node testdb.js",
-    "dev": "node testdb.js"
+    "dev": "node lib/index.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.53.1",

@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from "express";
 import profilePage from "./routes/profilePage.js";
 import movieDetails from "./routes/movieRoute.js";
@@ -10,7 +11,8 @@ import cors from "cors";
 
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:5173',}));
+    origin: ['http://localhost:5173', 'http://localhost:5174'],
+}));
       
 app.use(express.json());
 
