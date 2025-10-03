@@ -1,5 +1,4 @@
 import express from "express";
-<<<<<<< Updated upstream
 import { createClient } from "@supabase/supabase-js";
 
 const router = express.Router();
@@ -49,40 +48,3 @@ router.post("/bookings", async (req, res) => {
 });
 
 export default router;
-=======
-import supabase from "../sync.js";
-
-const router = express.Router();
-
-// POST /movies/bookings
-router.post("/bookings", async (req, res) => {
-    const { movie_id, theatre_id, show_id, user_name, seats } = req.body;
-
-    console.log("/movies/bookings payload:", req.body);
-
-    if (!movie_id || !theatre_id || !show_id || !user_name || !seats) {
-        return res.status(400).json({ error: "All fields are required" });
-    }
-
-    const { data, error } = await supabase
-        .from("bookings")
-        .insert([{ movie_id, theatre_id, show_id, user_name, seats }])
-        .select()
-        .single();
-
-    if (error) {
-        console.error("Supabase insert error:", error);
-        return res.status(500).json({ error: error.message });
-    }
-
-
-    return res.status(201).json({
-        message: "Booking successful",
-        booking: data ?? { movie_id, theatre_id, show_id, user_name, seats }
-    });
-});
-
-export default router;
-
-
->>>>>>> Stashed changes
